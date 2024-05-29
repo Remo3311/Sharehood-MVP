@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #9C27B0; /* Purple background color */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+#main-container {
+    background-image: url('image/photo_2024-05-29_23-54-30.jpg'); /* Background image for main container */
+}
+
+#form-container {
+    background-image: url('image/photo_2024-05-29_23-54-30.jpg'); /* Background image for form container */
+}
+
+.container.hidden {
+    display: none;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+    z-index: 1;
+}
+
+header, main {
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    margin: 0;
+    padding: 20px;
+    font-size: 2em;
+}
+
+main h2 {
+    margin: 20px 0;
+    font-size: 2.5em;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #607D8B; /* Button color */
+    color: white;
+    z-index: 2;
+}
+
+button:hover {
+    background-color: #455A64; /* Button hover color */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+form label {
+    text-align: left;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #607D8B;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #455A64;
+}
