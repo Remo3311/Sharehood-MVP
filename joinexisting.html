@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join ShareHood</title>
+    <link rel="stylesheet" href="existing.css">
+</head>
+<body>
+    <div class="container">
+        <form class="form" action="main.html">
+            <h1>join ShareHood</h1>
+            <div class="input-group">
+                <label for="first-name">Full Name <span>*</span></label>
+                <div class="name-fields">
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="email">E-mail <span>*</span></label>
+                <input type="email" id="email" name="email" placeholder="ex: myname@example.com" required>
+            </div>
+            <div class="input-group">
+                <label for="phone-number">Phone Number</label>
+                <div class="phone-fields">
+                    <input type="text" id="area-code" name="area-code" placeholder="Area Code">
+                    <input type="text" id="phone-number" name="phone-number" placeholder="Phone Number">
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="invitation-link">Invitation Link</label>
+                <input type="text" id="invitation-link" name="invitation-link" placeholder="paste the link here">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

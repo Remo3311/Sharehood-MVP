@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('image/photo_2024-05-29_23-21-19.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.icon-link {
+    margin: 0 10px;
+}
+
+.icon-link img {
+    width: 30px;
+    height: 30px;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.button {
+    display: block;
+    width: 300px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    text-align: left;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.button .icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.button span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.share {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.share .icon {
+    background-image: url('image/لقطة\ الشاشة\ 2024-06-02\ 223223-Photoroom.png');
+}
+
+.chat {
+    background-color: #D2B48C;
+}
+
+.chat .icon {
+    background-image: url('image/لقطة\ الشاشة\ 2024-06-03\ 013234-Photoroom.png'); 
+}
+
+.favor {
+    background-color: #8FBC8F;
+}
+
+.favor .icon {
+    background-image: url('image/لقطة\ الشاشة\ 2024-06-03\ 012944-Photoroom.png'); 
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 10px;
+}

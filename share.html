@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Section</title>
+    <link rel="stylesheet" href="share.css">
+</head>
+<body>
+    <div class="header">
+        <a href="#" class="icon-link"><img src="image/profile-Photoroom.png" alt="Profile Icon"></a>
+        <a href="#" class="icon-link"><img src="image/home-Photoroom.png" alt="Home Icon"></a>
+        <a href="#" class="icon-link"><img src="image/setting-Photoroom.png" alt="Settings Icon"></a>
+    </div>
+    <div class="share-section">
+        <h1>SHARE</h1>
+        <p>Leave something or put something</p>
+        <div class="image-container">
+            <img src="image/share.jpg" alt="Share Image">
+        </div>
+        <button id="plusButton">+</button>
+    </div>
+    <script>
+        document.getElementById('plusButton').addEventListener('click', function() {
+            window.location.href = 'iteminfo.html';
+        });
+    </script>
+</body>
+</html>

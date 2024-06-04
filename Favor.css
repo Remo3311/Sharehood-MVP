@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #3b5323;
+}
+
+.container {
+    text-align: center;
+    background-color: #dff2c3;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* Adjust this value to make the form smaller or larger */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add some shadow for better visibility */
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    position: absolute;
+    width: calc(100% - 1.5cm);
+    top: 0;
+}
+
+.icon-link img {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em; /* Adjust font size for smaller form */
+    color: #000;
+}
+
+h2 {
+    margin: 5px 0 20px 0;
+    font-size: 1em; /* Adjust font size for smaller form */
+    color: #555;
+}
+
+.image-container {
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 1em; /* Adjust font size for smaller form */
+    color: #000;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
