@@ -8,18 +8,18 @@
 </head>
 <body>
     <div class="header">
-        <a href="#" class="icon-link"><img src="image/profile-Photoroom.png" alt="Profile Icon"></a>
+        <a href="#" class="icon-link" onclick="showUserProfile()"><img src="image/profile-Photoroom.png" alt="Profile Icon"></a>
         <a href="#" class="icon-link"><img src="image/home-Photoroom.png" alt="Home Icon"></a>
         <a href="#" class="icon-link"><img src="image/setting-Photoroom.png" alt="Settings Icon"></a>
     </div>
     <div class="container">
         <h1>ShareHood</h1>
-        <p>lets start</p>
+        <p>Let's start</p>
         <a href="share.html" class="button share">
             <div class="icon share-icon"></div>
             <span>share<br><small>start sharing</small></span>
         </a>
-        <a href="#" class="button chat">
+        <a href="texting.html" class="button chat">
             <div class="icon chat-icon"></div>
             <span>chat<br><small>organize your special activity</small></span>
         </a>
@@ -33,6 +33,18 @@
             <a href="#"><img src="image/link-Photoroom.png" alt="Icon 3"></a>
             <a href="#"><img src="image/twetter.png" alt="Icon 4"></a>
         </div>
-    </div>
+    <script>
+        function showUserProfile() {
+            const currentUserEmail = localStorage.getItem('currentUser');
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.email === currentUserEmail);
+            
+            if (user) {
+                alert(`Full Name: ${user.firstName} ${user.lastName}\nEmail: ${user.email}\nAddress: ${user.address}, ${user.city}, ${user.country} ${user.zipCode}\nPhone Number: ${user.phoneNumber}-${user.phoneMain}`);
+            } else {
+                alert("No user data found. Please sign up first.");
+            }
+        }
+    </script>
 </body>
 </html>

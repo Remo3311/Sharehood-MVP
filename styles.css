@@ -62,7 +62,8 @@ main h2 {
 }
 
 button {
-    padding: 15px 30px;
+    width: 4cm; /* Set width to 4cm */
+    height: 1cm; /* Set height to 1cm */
     font-size: 1em;
     border: none;
     border-radius: 5px;
@@ -70,6 +71,7 @@ button {
     background-color: #607D8B;
     color: white;
     z-index: 2;
+    margin-left: 37.8px; /* Move 1cm to the right */
 }
 
 button:hover {
@@ -99,9 +101,12 @@ form input, form select, form button {
 }
 
 form button {
+    width: 4cm; /* Set width to 4cm */
+    height: 1cm; /* Set height to 1cm */
     background-color: #607D8B;
     color: white;
     cursor: pointer;
+    margin-left: 20px; /* Move 1cm to the right */
 }
 
 form button:hover {

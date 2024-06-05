@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShareHood sign in</title>
+    <title>ShareHood Sign Up</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="form-container" class="container">
         <header>
-            <h1>ShareHood sign in</h1>
+            <h1>ShareHood Sign Up</h1>
         </header>
         <main>
-            <form id="user-form" onsubmit="redirectToHomePage(event)">
+            <form id="user-form" onsubmit="saveUserData(event)">
                 <div class="form-group">
                     <label>Full Name *</label>
                     <input id="firstName" type="text" placeholder="First Name" required>
@@ -34,16 +34,46 @@
                 <div class="form-group">
                     <label>Phone Number</label>
                     <input id="phoneNumber" type="text" placeholder="Area Code">
-                    <input type="text" placeholder="Phone Number">
+                    <input id="phoneMain" type="text" placeholder="Phone Number">
                 </div>
                 <button type="submit">Submit</button>
             </form>
         </main>
     </div>
     <script>
-        function redirectToHomePage(event) {
+        function saveUserData(event) {
             event.preventDefault();  // Prevent the form from submitting the traditional way
-            window.location.href = "main.html";  // Redirect to the second HTML page
+            
+            // Get form data
+            const email = document.getElementById('email').value;
+            const userData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: email,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                country: document.getElementById('country').value,
+                zipCode: document.getElementById('zipCode').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                phoneMain: document.getElementById('phoneMain').value
+            };
+
+            // Retrieve existing users from local storage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Check if the email already exists
+            const existingUser = users.find(user => user.email === email);
+            if (existingUser) {
+                alert("This email is already registered. Please use a different email.");
+                return;
+            }
+            
+            // Save new user data to local storage
+            users.push(userData);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Redirect to the main page
+            window.location.href = "main.html";
         }
     </script>
 </body>
