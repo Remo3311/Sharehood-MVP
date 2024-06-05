@@ -35,14 +35,13 @@
             const lastName = document.getElementById('lastName').value;
             const email = document.getElementById('email').value;
             
-            // Retrieve existing users from local storage
+ 
             const users = JSON.parse(localStorage.getItem('users')) || [];
             
-            // Check if the user exists
             const existingUser = users.find(user => user.email === email && user.firstName === firstName && user.lastName === lastName);
             if (existingUser) {
-                localStorage.setItem('currentUser', email);  // Save the current user's email
-                window.location.href = "main.html";  // Redirect to the main HTML page
+                localStorage.setItem('currentUser', email);
+                window.location.href = "main.html";
             } else {
                 alert("No account found with the provided details. Please check your name and email.");
             }

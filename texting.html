@@ -118,7 +118,6 @@
             <button class="voice-call-button">📞</button>
         </div>
         <div class="chat-messages">
-            <!-- Messages will be displayed here -->
         </div>
         <div class="chat-input">
             <input type="text" id="message-input" placeholder="Type a message">
@@ -149,7 +148,6 @@
                 chatMessages.appendChild(messageElement);
                 messageInput.value = '';
 
-                // Scroll to the bottom of the chat
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             } else if (!currentUser) {
                 alert("Please sign in to send messages.");

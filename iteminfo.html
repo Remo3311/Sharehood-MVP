@@ -50,6 +50,38 @@
             </form>
         </main>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('info-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const productName = document.getElementById('productName').value;
+            const fileInput = document.getElementById('fileInput').files[0];
+            const description = document.getElementById('description').value;
+            const saleOrBorrow = document.getElementById('saleOrBorrow').value;
+            const itemStatus = document.getElementById('itemStatus').value;
+
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                const imageData = reader.result;
+
+                const productInfo = {
+                    name: `${firstName} ${lastName}`,
+                    productName: productName,
+                    image: imageData,
+                    description: description,
+                    saleOrBorrow: saleOrBorrow,
+                    itemStatus: itemStatus
+                };
+
+                let productList = JSON.parse(localStorage.getItem('productList')) || [];
+                productList.push(productInfo);
+                localStorage.setItem('productList', JSON.stringify(productList));
+                window.location.href = 'share.html';
+            };
+            reader.readAsDataURL(fileInput);
+        });
+    </script>
 </body>
 </html>
