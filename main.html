@@ -35,12 +35,12 @@
         </div>
     <script>
         function showUserProfile() {
-            const currentUserEmail = localStorage.getItem('currentUser');
+            const currentUserEmail = localStorage.getItem('currentUserEmail'); // Retrieve current user's email
             const users = JSON.parse(localStorage.getItem('users')) || [];
-            const user = users.find(user => user.email === currentUserEmail);
+            const currentUser = users.find(user => user.email === currentUserEmail);
             
-            if (user) {
-                alert(`Full Name: ${user.firstName} ${user.lastName}\nEmail: ${user.email}\nAddress: ${user.address}, ${user.city}, ${user.country} ${user.zipCode}\nPhone Number: ${user.phoneNumber}-${user.phoneMain}`);
+            if (currentUser) {
+                alert(`Full Name: ${currentUser.firstName} ${currentUser.lastName}\nEmail: ${currentUser.email}\nAddress: ${currentUser.address}, ${currentUser.city}, ${currentUser.country} ${currentUser.zipCode}\nPhone Number: ${currentUser.phoneNumber}-${currentUser.phoneMain}`);
             } else {
                 alert("No user data found. Please sign up first.");
             }

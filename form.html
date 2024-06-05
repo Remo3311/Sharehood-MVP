@@ -42,9 +42,9 @@
     </div>
     <script>
         function saveUserData(event) {
-            event.preventDefault();  // Prevent the form from submitting the traditional way
+            event.preventDefault();  
             
-            // Get form data
+            
             const email = document.getElementById('email').value;
             const userData = {
                 firstName: document.getElementById('firstName').value,
@@ -58,21 +58,21 @@
                 phoneMain: document.getElementById('phoneMain').value
             };
 
-            // Retrieve existing users from local storage
+            
             const users = JSON.parse(localStorage.getItem('users')) || [];
             
-            // Check if the email already exists
+            
             const existingUser = users.find(user => user.email === email);
             if (existingUser) {
                 alert("This email is already registered. Please use a different email.");
                 return;
             }
             
-            // Save new user data to local storage
+           
             users.push(userData);
             localStorage.setItem('users', JSON.stringify(users));
             
-            // Redirect to the main page
+            
             window.location.href = "main.html";
         }
     </script>

@@ -62,7 +62,7 @@
             background: #0056b3;
         }
 
-        button[type="submit"] {
+        button[type="button"] {
             width: 100%;
             padding: 10px;
             background: #28a745;
@@ -72,7 +72,7 @@
             cursor: pointer;
         }
 
-        button[type="submit"]:hover {
+        button[type="button"]:hover {
             background: #218838;
         }
     </style>
@@ -80,7 +80,7 @@
 <body>
     <div class="container">
         <h1>ASK FOR A FAVOR</h1>
-        <form>
+        <form id="favorForm">
             <label for="request">What do you need?</label>
             <input type="text" id="request" name="request" placeholder="ask for a favor">
             
@@ -95,9 +95,10 @@
                     <button type="button" class="time-slot">3:00 PM</button>
                     <button type="button" class="time-slot">4:00 PM</button>
                 </div>
+                <input type="hidden" id="time" name="time">
             </div>
             
-            <button type="submit">DONE</button>
+            <button type="button" onclick="submitForm()">DONE</button>
         </form>
     </div>
     <script>
@@ -108,9 +109,23 @@
                 slot.addEventListener('click', function() {
                     timeSlots.forEach(s => s.classList.remove('selected'));
                     this.classList.add('selected');
+                    document.getElementById('time').value = this.textContent;
                 });
             });
         });
+
+        function submitForm() {
+            const request = document.getElementById('request').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            const data = { request, date, time };
+            let favorList = JSON.parse(localStorage.getItem('favorList')) || [];
+            favorList.push(data);
+            localStorage.setItem('favorList', JSON.stringify(favorList));
+
+            window.location.href = 'Favor.html';
+        }
     </script>
 </body>
 </html>
