@@ -108,6 +108,29 @@
             border: none;
             margin-left: 10px;
         }
+
+        .signin-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .signin-container input {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            width: 200px;
+        }
+
+        .signin-container button {
+            padding: 10px 20px;
+            background-color: #3c3c3c;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -132,7 +155,34 @@
         <button class="close-info-button">Close</button>
     </div>
 
+    <div class="signin-container">
+        <input type="text" id="first-name" placeholder="Enter your first name">
+        <input type="text" id="last-name" placeholder="Enter your last name">
+        <button id="signin-button">Sign In</button>
+    </div>
+
     <script>
+        function displayStoredMessages() {
+            const storedMessages = JSON.parse(localStorage.getItem('messages')) || [];
+            const chatMessages = document.querySelector('.chat-messages');
+
+            storedMessages.forEach(message => {
+                const messageElement = document.createElement('div');
+                messageElement.innerHTML = message;
+                messageElement.classList.add('message');
+                chatMessages.appendChild(messageElement);
+            });
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function saveMessage(messageText, currentUser) {
+            const storedMessages = JSON.parse(localStorage.getItem('messages')) || [];
+            const message = `<strong>${currentUser.firstName} ${currentUser.lastName}:</strong> ${messageText}`;
+            storedMessages.push(message);
+            localStorage.setItem('messages', JSON.stringify(storedMessages));
+        }
+
         document.getElementById('send-button').addEventListener('click', function() {
             const messageInput = document.getElementById('message-input');
             const messageText = messageInput.value.trim();
@@ -148,9 +198,26 @@
                 chatMessages.appendChild(messageElement);
                 messageInput.value = '';
 
+                saveMessage(messageText, currentUser);
+
                 chatMessages.scrollTop = chatMessages.scrollHeight;
-            } else if (!currentUser) {
+            } else {
                 alert("Please sign in to send messages.");
+            }
+        });
+
+        document.getElementById('signin-button').addEventListener('click', function() {
+            const firstNameInput = document.getElementById('first-name');
+            const lastNameInput = document.getElementById('last-name');
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+
+            if (firstName !== '' && lastName !== '') {
+                const currentUser = { firstName, lastName };
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                document.querySelector('.signin-container').style.display = 'none';
+            } else {
+                alert("Please enter both first name and last name.");
             }
         });
 
@@ -163,14 +230,11 @@
         });
 
         document.getElementById('add-user-button').addEventListener('click', function() {
-            const userInput = document.getElementById('user-input');
-            const userName = userInput.value.trim();
-
-            if (userName !== '') {
-                alert(userName + ' added to the group.');
-                userInput.value = '';
-            }
+           
         });
-    </script>
+
+// Display stored messages when the page loads
+displayStoredMessages();
+</script>
 </body>
 </html>
