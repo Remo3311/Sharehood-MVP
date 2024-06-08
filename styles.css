@@ -1,34 +1,40 @@
+/* General styles for the body */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #9C27B0; 
+    background-color: #9C27B0; /* Background color for the body */
 }
 
+/* Styles for the container */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    color: rgb(228, 194, 194);
-    text-align: center;
-    position: relative;
+    height: 100vh; /* Full viewport height */
+    background-size: cover; /* Ensure the background image covers the container */
+    background-position: center; /* Center the background image */
+    color: rgb(228, 194, 194); /* Text color */
+    text-align: center; /* Center-align text */
+    position: relative; /* Position relative for absolute positioning */
 }
 
+/* Styles for main container */
 #main-container {
-    background-image: url('image/photo_2024-05-29_23-21-19.jpg');
+    background-image: url('image/photo_2024-05-29_23-21-19.jpg'); /* Background image for main container */
 }
 
+/* Styles for form container */
 #form-container {
-    background-image: url('image/photo_2024-05-29_23-21-19.jpg');
+    background-image: url('image/photo_2024-05-29_23-21-19.jpg'); /* Background image for form container */
 }
 
+/* Styles for hidden container */
 .container.hidden {
-    display: none;
+    display: none; /* Hide the container */
 }
 
+/* Styles for overlay */
 .container::before {
     content: '';
     position: absolute;
@@ -36,31 +42,36 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Place overlay behind other content */
 }
 
+/* Styles for header and main sections */
 header, main {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Place header and main above overlay */
 }
 
+/* Styles for header h1 */
 header h1 {
     margin: 0;
     padding: 20px;
-    font-size: 2em;
+    font-size: 2em; /* Larger font size for header */
 }
 
+/* Styles for main h2 */
 main h2 {
     margin: 20px 0;
-    font-size: 2.5em;
+    font-size: 2.5em; /* Larger font size for main */
 }
 
+/* Styles for buttons section */
 .buttons {
     display: flex;
-    gap: 20px;
+    gap: 20px; /* Spacing between buttons */
 }
 
+/* Styles for buttons */
 button {
     width: 4cm;
     height: 1cm;
@@ -68,47 +79,54 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #607D8B;
-    color: white;
-    z-index: 2;
-    margin-left: 37.8px;
+    background-color: #607D8B; /* Background color for buttons */
+    color: white; /* Text color for buttons */
+    z-index: 2; /* Place buttons above overlay */
+    margin-left: 37.8px; /* Adjusted margin for buttons */
 }
 
+/* Hover styles for buttons */
 button:hover {
-    background-color: #455A64; 
+    background-color: #455A64; /* Darker background color on hover */
 }
 
+/* Styles for forms */
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; /* Spacing between form elements */
 }
 
+/* Styles for form groups */
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 5px; /* Spacing between form elements */
 }
 
+/* Styles for form labels */
 form label {
-    text-align: left;
+    text-align: left; /* Align labels to the left */
 }
 
+/* Styles for form inputs, selects, and buttons */
 form input, form select, form button {
     padding: 10px;
     border: none;
     border-radius: 5px;
 }
 
+/* Styles for form buttons */
 form button {
     width: 4cm;
     height: 1cm;
-    background-color: #607D8B;
-    color: white;
+    background-color: #607D8B; /* Background color for form buttons */
+    color: white; /* Text color for form buttons */
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 20px; /* Adjusted margin for form buttons */
 }
 
+/* Hover styles for form buttons */
 form button:hover {
-    background-color: #455A64;
+    background-color: #455A64; /* Darker background color on hover */
 }
