@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask for a Favor</title>
+    <!-- Internal CSS styles for styling the form -->
     <style>
+        /* General styling for the body */
         body {
             font-family: Arial, sans-serif;
             background-color: #a0daa2;
@@ -14,7 +16,8 @@
             height: 100vh;
             margin: 0;
         }
-
+        
+        /* Styling for the form container */
         .container {
             background: #fff;
             padding: 20px;
@@ -23,17 +26,20 @@
             max-width: 400px;
             width: 100%;
         }
-
+        
+        /* Styling for the main heading */
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
         }
-
+        
+        /* Styling for form labels */
         label {
             display: block;
             margin: 10px 0 5px;
         }
-
+        
+        /* Styling for text and date input fields */
         input[type="text"], input[type="date"] {
             width: calc(100% - 20px);
             padding: 10px;
@@ -41,14 +47,15 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-
+        
+        /* Styling for time slot buttons */
         #timeslots {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 20px; /* Added margin-bottom for spacing */
         }
-
+        
         .time-slot {
             padding: 10px 20px;
             background: #007bff;
@@ -57,11 +64,12 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
+        
         .time-slot.selected {
             background: #0056b3;
         }
-
+        
+        /* Styling for submit button */
         button[type="button"] {
             width: 100%;
             padding: 10px;
@@ -71,7 +79,7 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
+        
         button[type="button"]:hover {
             background: #218838;
         }
@@ -79,14 +87,20 @@
 </head>
 <body>
     <div class="container">
+        <!-- Heading for the form -->
         <h1>ASK FOR A FAVOR</h1>
+        <!-- Form to input favor request and appointment details -->
         <form id="favorForm">
+            <!-- Input field for favor request -->
             <label for="request">What do you need?</label>
             <input type="text" id="request" name="request" placeholder="ask for a favor">
             
+            <!-- Section for appointment date and time slots -->
             <div class="appointment">
                 <label for="date">Appointment</label>
+                <!-- Input field for selecting appointment date -->
                 <input type="date" id="date" name="date">
+                <!-- Time slots for appointment -->
                 <div id="timeslots">
                     <button type="button" class="time-slot">9:00 AM</button>
                     <button type="button" class="time-slot">10:00 AM</button>
@@ -95,35 +109,50 @@
                     <button type="button" class="time-slot">3:00 PM</button>
                     <button type="button" class="time-slot">4:00 PM</button>
                 </div>
+                <!-- Hidden input field to store selected time slot -->
                 <input type="hidden" id="time" name="time">
             </div>
             
+            <!-- Button to submit the form -->
             <button type="button" onclick="submitForm()">DONE</button>
         </form>
     </div>
+    <!-- JavaScript to handle time slot selection and form submission -->
     <script>
+        // Function to execute when the DOM content is loaded
         document.addEventListener('DOMContentLoaded', function() {
             const timeSlots = document.querySelectorAll('.time-slot');
             
+            // Event listener to handle time slot selection
             timeSlots.forEach(slot => {
                 slot.addEventListener('click', function() {
+                    // Remove 'selected' class from all time slots
                     timeSlots.forEach(s => s.classList.remove('selected'));
+                    // Add 'selected' class to the clicked time slot
                     this.classList.add('selected');
+                    // Set the value of the hidden input field to the selected time slot
                     document.getElementById('time').value = this.textContent;
                 });
             });
         });
 
+        // Function to submit the form
         function submitForm() {
+            // Retrieve input values
             const request = document.getElementById('request').value;
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
             
+            // Create an object to store form data
             const data = { request, date, time };
+            // Retrieve favor list from local storage or initialize an empty array
             let favorList = JSON.parse(localStorage.getItem('favorList')) || [];
+            // Add the new favor request to the favor list
             favorList.push(data);
+            // Store the updated favor list in local storage
             localStorage.setItem('favorList', JSON.stringify(favorList));
 
+            // Redirect to the favor page after submitting the form
             window.location.href = 'Favor.html';
         }
     </script>
