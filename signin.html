@@ -1,28 +1,35 @@
+<!--
+  File: signIn.html
+  Author: [Your Name]
+  Date: June 8, 2024
+  Description: This HTML file serves as the sign-in page for ShareHood, where users can enter their full name and email to access the platform.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShareHood Sign In</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Linking to an external stylesheet -->
 </head>
 <body>
     <div id="form-container" class="container">
         <header>
-            <h1>ShareHood Sign In</h1>
+            <h1>ShareHood Sign In</h1> <!-- Title for the sign-in page -->
         </header>
         <main>
-            <form id="user-form" onsubmit="signInUser(event)">
+            <form id="user-form" onsubmit="signInUser(event)"> <!-- Form for user sign-in -->
                 <div class="form-group">
-                    <label>Full Name *</label>
-                    <input id="firstName" type="text" placeholder="First Name" required>
-                    <input id="lastName" type="text" placeholder="Last Name" required>
+                    <label>Full Name *</label> <!-- Label for full name input -->
+                    <input id="firstName" type="text" placeholder="First Name" required> <!-- Input for first name -->
+                    <input id="lastName" type="text" placeholder="Last Name" required> <!-- Input for last name -->
                 </div>
                 <div class="form-group">
-                    <label>E-mail *</label>
-                    <input id="email" type="email" placeholder="ex: myname@example.com" required>
+                    <label>E-mail *</label> <!-- Label for email input -->
+                    <input id="email" type="email" placeholder="ex: myname@example.com" required> <!-- Input for email -->
                 </div>
-                <button type="submit">Sign In</button>
+                <button type="submit">Sign In</button> <!-- Submit button for the form -->
             </form>
         </main>
     </div>
@@ -36,14 +43,14 @@
             const email = document.getElementById('email').value;
             
  
-            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const users = JSON.parse(localStorage.getItem('users')) || []; // Retrieve users data from local storage or initialize empty array
             
-            const existingUser = users.find(user => user.email === email && user.firstName === firstName && user.lastName === lastName);
+            const existingUser = users.find(user => user.email === email && user.firstName === firstName && user.lastName === lastName); // Check if the user exists
             if (existingUser) {
                 localStorage.setItem('currentUserEmail', email); // Store current user's email
-                window.location.href = "main.html";
+                window.location.href = "main.html"; // Redirect to main page if user exists
             } else {
-                alert("No account found with the provided details. Please check your name and email.");
+                alert("No account found with the provided details. Please check your name and email."); // Alert if user does not exist
             }
         }
     </script>
