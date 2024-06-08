@@ -4,47 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShareHood Sign Up</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Linking to an external stylesheet -->
 </head>
 <body>
     <div id="form-container" class="container">
         <header>
-            <h1>ShareHood Sign Up</h1>
+            <h1>ShareHood Sign Up</h1> <!-- Title for the sign-up form -->
         </header>
         <main>
+            <!-- Form to input user information -->
             <form id="user-form" onsubmit="saveUserData(event)">
                 <div class="form-group">
                     <label>Full Name *</label>
+                    <!-- Input fields for first and last name -->
                     <input id="firstName" type="text" placeholder="First Name" required>
                     <input id="lastName" type="text" placeholder="Last Name" required>
                 </div>
                 <div class="form-group">
-                    <label>E-mail *</label>
-                    <input id="email" type="email" placeholder="ex: myname@example.com" required>
+                    <label>E-mail *</label> <!-- Label for email -->
+                    <input id="email" type="email" placeholder="ex: myname@example.com" required> <!-- Input field for email -->
                 </div>
                 <div class="form-group">
-                    <label>Address</label>
+                    <label>Address</label> <!-- Label for address -->
+                    <!-- Input fields for address, city, country, and zip code -->
                     <input id="address" type="text" placeholder="Street Address">
                     <input id="city" type="text" placeholder="City">
-                    <select id="country">
+                    <select id="country"> <!-- Dropdown to select country -->
                         <option value="">Please Select</option>
                     </select>
                     <input id="zipCode" type="text" placeholder="Zip Code">
                 </div>
                 <div class="form-group">
-                    <label>Phone Number</label>
+                    <label>Phone Number</label> <!-- Label for phone number -->
+                    <!-- Input fields for area code and main phone number -->
                     <input id="phoneNumber" type="text" placeholder="Area Code">
                     <input id="phoneMain" type="text" placeholder="Phone Number">
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit">Submit</button> <!-- Submit button -->
             </form>
         </main>
     </div>
+    <!-- JavaScript to handle form submission -->
     <script>
         function saveUserData(event) {
-            event.preventDefault();  
+            event.preventDefault(); // Prevent the default form submission behavior
             
-            
+            // Retrieve form input values
             const email = document.getElementById('email').value;
             const userData = {
                 firstName: document.getElementById('firstName').value,
@@ -57,22 +62,23 @@
                 phoneNumber: document.getElementById('phoneNumber').value,
                 phoneMain: document.getElementById('phoneMain').value
             };
-
             
+            // Retrieve or initialize user list from local storage
             const users = JSON.parse(localStorage.getItem('users')) || [];
             
-            
+            // Check if the user with the same email already exists
             const existingUser = users.find(user => user.email === email);
             if (existingUser) {
                 alert("This email is already registered. Please use a different email.");
                 return;
             }
             
-           
+            // Add new user data to the user list
             users.push(userData);
+            // Save updated user list to local storage
             localStorage.setItem('users', JSON.stringify(users));
             
-            
+            // Redirect to the main page after successful sign-up
             window.location.href = "main.html";
         }
     </script>
