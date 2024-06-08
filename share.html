@@ -1,11 +1,18 @@
+<!--
+  File: share.html
+  Author: reem torshein
+  Date: June 8, 2024
+  Description: This HTML file displays the share section of ShareHood, allowing users to add, view, and delete items.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Share Section</title>
-    <link rel="stylesheet" href="share.css">
+    <link rel="stylesheet" href="share.css"> <!-- Linking to an external stylesheet -->
     <style>
+        /* Inline CSS styling */
         .item-container {
             width: 4cm;
             height: 8cm;
@@ -19,11 +26,13 @@
             background-color: #161515;
             overflow: hidden;
         }
+        /* Styling for item images */
         .item-container img {
             width: 100%;
             height: auto;
             max-height: 50%;
         }
+        /* Styling for item name */
         .item-container .name {
             font-size: 14px;
             margin-bottom: 5px;
@@ -31,6 +40,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        /* Styling for take button */
         .item-container .take-button {
             background-color: red;
             color: white;
@@ -42,6 +52,7 @@
             font-size: 11px;
             align-self: center;
         }
+        /* Styling for product information */
         .item-container .product-info {
             font-size: 12px;
             margin-top: 5px;
@@ -49,6 +60,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        /* Styling for item description */
         .item-container .description {
             font-size: 10px;
             margin-top: 5px;
@@ -56,6 +68,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        /* Styling for items container */
         #items-container {
             display: flex;
             flex-wrap: wrap;
@@ -63,33 +76,39 @@
     </style>
 </head>
 <body>
+    <!-- Header section with icons -->
     <div class="header">
         <a href="#" class="icon-link"><img src="image/profile-Photoroom.png" alt="Profile Icon"></a>
         <a href="#" class="icon-link"><img src="image/home-Photoroom.png" alt="Home Icon"></a>
         <a href="#" class="icon-link"><img src="image/setting-Photoroom.png" alt="Settings Icon"></a>
     </div>
+    <!-- Share section -->
     <div class="share-section">
-        <h1>SHARE</h1>
-        <p>Leave something or put something</p>
+        <h1>SHARE</h1> <!-- Title for share section -->
+        <p>Leave something or put something</p> <!-- Description for share section -->
         <div class="image-container">
-            <img src="image/share.jpg" alt="Share Image">
+            <img src="image/share.jpg" alt="Share Image"> <!-- Image for share section -->
         </div>
-        <button id="plusButton">+</button>
-        <div id="items-container"></div>
+        <button id="plusButton">+</button> <!-- Button to add new items -->
+        <div id="items-container"></div> <!-- Container to display items -->
     </div>
     <script>
+        // Script to handle adding new items
         document.getElementById('plusButton').addEventListener('click', function() {
-            window.location.href = 'iteminfo.html';
+            window.location.href = 'iteminfo.html'; // Redirect to iteminfo.html on button click
         });
 
+        // Script to populate items from local storage
         window.addEventListener('DOMContentLoaded', (event) => {
-            const productList = JSON.parse(localStorage.getItem('productList')) || [];
+            const productList = JSON.parse(localStorage.getItem('productList')) || []; // Retrieve product list from local storage or initialize empty array
             const itemsContainer = document.getElementById('items-container');
 
+            // Loop through each product in the list
             productList.forEach((productInfo, index) => {
-                const itemContainer = document.createElement('div');
-                itemContainer.className = 'item-container';
+                const itemContainer = document.createElement('div'); // Create a container for each item
+                itemContainer.className = 'item-container'; // Set class for styling
 
+                // Populate item container with HTML content
                 itemContainer.innerHTML = `
                     <div class="name">${productInfo.name}</div>
                     <img src="${productInfo.image}" alt="Product Image">
@@ -104,17 +123,18 @@
                     <button class="take-button">take it</button>
                 `;
 
+                // Event listener to handle item deletion on right-click
                 itemContainer.addEventListener('contextmenu', function(event) {
                     event.preventDefault();
                     const confirmDelete = confirm('Do you want to delete this item?');
                     if (confirmDelete) {
-                        productList.splice(index, 1);
-                        localStorage.setItem('productList', JSON.stringify(productList));
-                        itemsContainer.removeChild(itemContainer);
+                        productList.splice(index, 1); // Remove item from product list
+                        localStorage.setItem('productList', JSON.stringify(productList)); // Update local storage
+                        itemsContainer.removeChild(itemContainer); // Remove item container from DOM
                     }
                 });
 
-                itemsContainer.appendChild(itemContainer);
+                itemsContainer.appendChild(itemContainer); // Append item container to items container
             });
         });
     </script>
