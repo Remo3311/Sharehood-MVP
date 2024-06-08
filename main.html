@@ -1,48 +1,64 @@
+<!--
+  File: main.html
+  Author: reem torshen
+  Date: June 8, 2024
+  Description: This HTML file serves as the main page for ShareHood, providing access to various sections such as sharing, chatting, and favoring.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShareHood</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css"> <!-- Linking to an external stylesheet -->
 </head>
 <body>
+    <!-- Header section with icons -->
     <div class="header">
         <a href="#" class="icon-link" onclick="showUserProfile()"><img src="image/profile-Photoroom.png" alt="Profile Icon"></a>
         <a href="#" class="icon-link"><img src="image/home-Photoroom.png" alt="Home Icon"></a>
         <a href="#" class="icon-link"><img src="image/setting-Photoroom.png" alt="Settings Icon"></a>
     </div>
+    <!-- Main content container -->
     <div class="container">
-        <h1>ShareHood</h1>
-        <p>Let's start</p>
+        <h1>ShareHood</h1> <!-- Title of the page -->
+        <p>Let's start</p> <!-- Description -->
+        <!-- Button to navigate to the share section -->
         <a href="share.html" class="button share">
-            <div class="icon share-icon"></div>
-            <span>share<br><small>start sharing</small></span>
+            <div class="icon share-icon"></div> <!-- Icon for sharing -->
+            <span>share<br><small>start sharing</small></span> <!-- Text content -->
         </a>
+        <!-- Button to navigate to the chat section -->
         <a href="texting.html" class="button chat">
-            <div class="icon chat-icon"></div>
-            <span>chat<br><small>organize your special activity</small></span>
+            <div class="icon chat-icon"></div> <!-- Icon for chat -->
+            <span>chat<br><small>organize your special activity</small></span> <!-- Text content -->
         </a>
+        <!-- Button to navigate to the favor section -->
         <a href="Favor.html" class="button favor">
-            <div class="icon favor-icon"></div>
-            <span>favor<br><small>do me a favor</small></span>
+            <div class="icon favor-icon"></div> <!-- Icon for favor -->
+            <span>favor<br><small>do me a favor</small></span> <!-- Text content -->
         </a>
+        <!-- Social media icons -->
         <div class="social-icons">
             <a href="#"><img src="image/instagram.png" alt="Icon 1"></a>
             <a href="#"><img src="image/email-Photoroom.png" alt="Icon 2"></a>
             <a href="#"><img src="image/link-Photoroom.png" alt="Icon 3"></a>
             <a href="#"><img src="image/twetter.png" alt="Icon 4"></a>
         </div>
+    </div>
+    <!-- JavaScript function to show user profile -->
     <script>
         function showUserProfile() {
             const currentUserEmail = localStorage.getItem('currentUserEmail'); // Retrieve current user's email
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-            const currentUser = users.find(user => user.email === currentUserEmail);
+            const users = JSON.parse(localStorage.getItem('users')) || []; // Retrieve user data
+            const currentUser = users.find(user => user.email === currentUserEmail); // Find current user
             
+            // If user data found, display it
             if (currentUser) {
                 alert(`Full Name: ${currentUser.firstName} ${currentUser.lastName}\nEmail: ${currentUser.email}\nAddress: ${currentUser.address}, ${currentUser.city}, ${currentUser.country} ${currentUser.zipCode}\nPhone Number: ${currentUser.phoneNumber}-${currentUser.phoneMain}`);
             } else {
-                alert("No user data found. Please sign up first.");
+                alert("No user data found. Please sign up first."); // Alert if no user data found
             }
         }
     </script>
