@@ -4,56 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Share Information</title>
-    <link rel="stylesheet" href="iteminfo.css">
+    <link rel="stylesheet" href="iteminfo.css"> <!-- Linking to an external stylesheet -->
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Put Some Information</h1>
+            <h1>Put Some Information</h1> <!-- Title for the form -->
         </header>
         <main>
+            <!-- Form to input item information -->
             <form id="info-form" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label>Your Name:</label>
+                    <label>Your Name:</label> <!-- Label for user's name -->
+                    <!-- Input fields for first and last name -->
                     <input id="firstName" type="text" placeholder="First Name" required>
                     <input id="lastName" type="text" placeholder="Last Name" required>
                 </div>
                 <div class="form-group">
-                    <label>The Product Name:</label>
-                    <input id="productName" type="text" required>
+                    <label>The Product Name:</label> <!-- Label for product name -->
+                    <input id="productName" type="text" required> <!-- Input field for product name -->
                 </div>
                 <div class="form-group">
-                    <label>Upload a Picture:</label>
-                    <input id="fileInput" type="file" required>
+                    <label>Upload a Picture:</label> <!-- Label for file input -->
+                    <input id="fileInput" type="file" required> <!-- File input to upload a picture -->
                 </div>
                 <div class="form-group">
-                    <label>Description:</label>
-                    <textarea id="description" placeholder="Type here..." required></textarea>
+                    <label>Description:</label> <!-- Label for description -->
+                    <textarea id="description" placeholder="Type here..." required></textarea> <!-- Textarea for description -->
                 </div>
                 <div class="form-group">
-                    <label>Sale or Borrow?</label>
-                    <select id="saleOrBorrow" required>
+                    <label>Sale or Borrow?</label> <!-- Label for sale or borrow selection -->
+                    <select id="saleOrBorrow" required> <!-- Dropdown to select sale or borrow -->
                         <option value="">Please Select</option>
                         <option value="sale">Sale</option>
                         <option value="borrow">Borrow</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Item Status:</label>
-                    <select id="itemStatus" required>
+                    <label>Item Status:</label> <!-- Label for item status selection -->
+                    <select id="itemStatus" required> <!-- Dropdown to select item status -->
                         <option value="">Please Select</option>
                         <option value="new">New</option>
                         <option value="used">Used</option>
                     </select>
                 </div>
-                <button type="submit">Share</button>
+                <button type="submit">Share</button> <!-- Submit button -->
             </form>
         </main>
     </div>
+    <!-- JavaScript to handle form submission -->
     <script>
         document.getElementById('info-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent the default form submission behavior
 
+            // Retrieve form input values
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const productName = document.getElementById('productName').value;
@@ -62,10 +66,12 @@
             const saleOrBorrow = document.getElementById('saleOrBorrow').value;
             const itemStatus = document.getElementById('itemStatus').value;
 
+            // FileReader to read the uploaded image
             const reader = new FileReader();
             reader.onloadend = function() {
                 const imageData = reader.result;
 
+                // Construct product information object
                 const productInfo = {
                     name: `${firstName} ${lastName}`,
                     productName: productName,
@@ -75,11 +81,16 @@
                     itemStatus: itemStatus
                 };
 
+                // Retrieve or initialize product list from local storage
                 let productList = JSON.parse(localStorage.getItem('productList')) || [];
+                // Push new product information to the product list
                 productList.push(productInfo);
+                // Save updated product list to local storage
                 localStorage.setItem('productList', JSON.stringify(productList));
+                // Redirect to the share page
                 window.location.href = 'share.html';
             };
+            // Read the uploaded image as a data URL
             reader.readAsDataURL(fileInput);
         });
     </script>
