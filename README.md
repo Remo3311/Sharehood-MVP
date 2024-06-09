@@ -7,7 +7,7 @@ Welcome to ShareHood, a community-driven platform designed to make life easier b
 [Visit ShareHood](https://remo3311.github.io/Sharehood-MVP)
 
 ## Author
-REEM TORSHEIN - [LinkedIn](www.linkedin.com/in/reem-torshin-73829128a)
+REEM TORSHEIN - [LinkedIn](https://www.linkedin.com/in/reem-torshin-73829128a)
 
 ## Installation
 ITS a simple website so tou can access simply wirh the link 
