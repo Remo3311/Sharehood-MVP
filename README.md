@@ -9,6 +9,9 @@ Welcome to ShareHood, a community-driven platform designed to make life easier b
 ## Author
 REEM TORSHEIN - [LinkedIn](https://www.linkedin.com/in/reem-torshin-73829128a)
 
+## my blog post:
+blog post - (https://medium.com/@remo33553311/my-journey-through-the-final-portfolio-project-sharehood-22e902a9f305).
+
 ## Installation
 ITS a simple website so tou can access simply wirh the link 
 
