@@ -56,8 +56,6 @@ In the next iteration, I plan to add a feature for organizing community events a
 ### Technical Details
 The project is built using html css amd javascript 
 
-# my blog post:
-https://medium.com/@remo33553311/my-journey-through-the-final-portfolio-project-sharehood-22e902a9f305
 
 ![4105c6f6-13ab-46aa-9c91-bf9040702b28_1080x938](https://github.com/Remo3311/Sharehood-MVP/assets/140193991/c76cdbf9-a331-47c8-81b0-ea282c58da2b)
 
