@@ -24,8 +24,9 @@ ITS a simple website so tou can access simply wirh the link
 5. Create a pull request.
 
 ## Related Projects
-- [Neighborly](https://github.com/username/neighborly)
-- [ResourceShare](https://github.com/username/resourceshare)
+- NextDoor
+- BorrowMyTools
+- SkillSwap
 
 # Licensing
 ALX software engendering
@@ -33,8 +34,7 @@ ALX software engendering
 ## Screenshot
 ![ShareHood Screenshot](![لقطة الشاشة 2024-06-09 001422](https://github.com/Remo3311/Sharehood-MVP/assets/140193991/14066d80-70c6-4e8a-b888-34573fd4099e)
 
-
- ![لقطة الشاشة 2024-06-09 142805](https://github.com/Remo3311/Sharehood-MV
+![لقطة الشاشة 2024-06-09 142805](https://github.com/Remo3311/Sharehood-MVP/assets/140193991/3aeab5f6-f988-4eae-a9d6-d335b03e6126)
 
 
 ## Story
